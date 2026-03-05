@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasir Krusty Krab - Transaksi</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            margin: 0;
+            padding: 20px;
+        }
+        .billing-box {
+            max-width: 500px;
+            margin: auto;
+            background: #f1c40f;
+            color: #2c3e50;
+            padding: 30px;
+            border-radius: 5px;
+            border: 8px double #e67e22;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 2px solid #2c3e50;
+            border-radius: 4px;
+        }
+        .total-section {
+            background: #d35400;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .btn-bayar {
+            width: 100%;
+            background-color: #27ae60;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+        .btn-bayar:hover {
+            background-color: #219150;
+        }
+        .note {
+            font-size: 0.8em;
+            font-style: italic;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="billing-box">
+        <h2>Nota Pemesanan</h2>
+        <p style="text-align: center; margin-top: -10px;"><em>"Dibuat dengan cinta (dan biaya tambahan)"</em></p>
+        
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="nama">Nama Pelanggan:</label>
+                <input type="text" id="nama" name="nama" placeholder="Contoh: Patrick Star" required>
+            </div>
+
+            <div class="form-group">
+                <label for="menu">Pilih Paket Krabby Patty:</label>
+                <select id="menu" name="menu">
+                    <option value="2.00">Krabby Patty Standar - $2.00</option>
+                    <option value="2.25">Double Krabby Patty - $2.25</option>
+                    <option value="3.50">Monster Krabby Patty - $3.50</option>
+                    <option value="1.25">Saus Tartar Ekstra - $1.25</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="jumlah">Jumlah Pesanan:</label>
+                <input type="number" id="jumlah" name="jumlah" min="1" value="1">
+            </div>
+
+            <div class="form-group">
+                <label for="meja">Nomor Meja:</label>
+                <input type="number" id="meja" name="meja" placeholder="1-10">
+            </div>
+
+            <div class="total-section">
+                ESTIMASI TOTAL: <span id="display-total">$2.00</span>
+            </div>
+
+            <button type="submit" class="btn-bayar">💸 Serahkan Uang Anda!</button>
+            
+            <p class="note">** Tidak ada pengembalian uang. Tuan Krab tidak suka pengembalian uang.</p>
+        </form>
+    </div>
+
+    <script>
+        // Script sederhana untuk menghitung total otomatis
+        const menuSelect = document.getElementById('menu');
+        const jumlahInput = document.getElementById('jumlah');
+        const totalDisplay = document.getElementById('display-total');
+
+        function hitungTotal() {
+            let harga = parseFloat(menuSelect.value);
+            let jumlah = parseInt(jumlahInput.value) || 0;
+            let total = harga * jumlah;
+            totalDisplay.innerText = '$' + total.toFixed(2);
+        }
+
+        menuSelect.addEventListener('change', hitungTotal);
+        jumlahInput.addEventListener('input', hitungTotal);
+    </script>
+
+</body>
+</html>
