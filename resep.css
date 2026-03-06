@@ -1,0 +1,64 @@
+body{
+
+font-family:Segoe UI;
+
+margin:0;
+
+background:#f5f7fa;
+
+line-height:1.6;
+
+text-align:center;
+
+}
+nav{
+display:flex;
+justify-content:space-between;
+background:blue;
+padding:15px 40px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:20px;
+}
+
+nav a{
+text-decoration:none;
+color:black;
+font-weight:bold;
+}
+
+
+.title{
+
+margin-top:40px;
+
+}
+
+.container{
+
+display:flex;
+
+justify-content:center;
+
+gap:40px;
+
+padding:60px;
+
+}
+
+.card{
+
+background:white;
+
+padding:30px;
+
+width:260px;
+
+border-radius:12px;
+
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+
+}
